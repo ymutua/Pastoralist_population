@@ -1,0 +1,21 @@
+# Ignore data directories
+Results/
+SpatialData/
+  
+# Ignore R temporary files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+  
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.temp
+*~
+  
+# Ignore log files
+*.log
