@@ -1,4 +1,4 @@
-# Estimating pastoralist and agro-pastoralist populations across Africa using geospatial data.
+# Estimating pastoralist and agro-pastoralist populations across Africa using geospatial data
 
 ## Overview
 
@@ -17,7 +17,7 @@ Results are organized into four subdirectories:
 
 - **Raster_data/**: Pastoral population rasters (.tif files)
 - **Vector_data/**: Shapefiles for agro-pastoral and pastoral populations by admin levels
-- **Summary_statistics/**: CSV files with combined population statistics and GHOA analysis
+- **Tabular_data/**: CSV files with combined population statistics and GHOA analysis
 - **Plots/**: High-resolution side-by-side comparison maps (PNG)
 
 ## Usage
