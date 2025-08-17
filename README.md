@@ -1,8 +1,8 @@
-# Estimating pastoralist and agro-pastoralist populations across Africa using geospatial data
+# Estimating pastoralist and agro-pastoralist populations across Africa using geospatial data.
 
 ## Overview
 
-We identify pastoral zones by combining aridity, livestock production systems, livestock density, and population constraints. We separate agro-pastoral (mixed farming) from pastoral (livestock-only) areas and estimate populations in each zone using WorldPop and GPW v4 datasets.
+This project identifies pastoral zones by combining aridity, livestock production systems, livestock density, and population constraints. It separates agro-pastoral (mixed farming) from pastoral (livestock-only) areas and estimates populations in each zone using WorldPop and GPW v4 datasets.
 
 ## Workflow
 
@@ -13,10 +13,12 @@ We identify pastoral zones by combining aridity, livestock production systems, l
 
 ## Key Outputs
 
-- **Rasters**: Pastoral zone classifications and population distributions
-- **Statistics**: Combined CSV files with agro-pastoral and pastoral populations by admin levels
-- **Shapefiles**: Spatial data for mapping with preserved attribute names
-- **Maps**: High-resolution side-by-side comparison plots (PNG, 300 DPI)
+Results are organized into four subdirectories:
+
+- **Raster_data/**: Pastoral population rasters (.tif files)
+- **Vector_data/**: Shapefiles for agro-pastoral and pastoral populations by admin levels
+- **Summary_statistics/**: CSV files with combined population statistics and GHOA analysis
+- **Plots/**: High-resolution side-by-side comparison maps (PNG)
 
 ## Usage
 

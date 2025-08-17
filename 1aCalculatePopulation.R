@@ -7,6 +7,10 @@ source("config.R")
 
 options(warn = -1, scipen = 999)
 dir.create(resultsdir, FALSE, TRUE)
+dir.create(paste0(resultsdir, "/Raster_data"), FALSE, TRUE)
+dir.create(paste0(resultsdir, "/Vector_data"), FALSE, TRUE)
+dir.create(paste0(resultsdir, "/Summary_statistics"), FALSE, TRUE)
+dir.create(paste0(resultsdir, "/Plots"), FALSE, TRUE)
 
 # Load data
 africaCountries_0 <- st_read(paste0(outdir, "/africa_admin_0.shp"))
@@ -19,7 +23,7 @@ process_population_layer <- function(popLayer) {
   humanPop <- rast(paste0(outdir, "/humanPop_", popLayer, ".tif"))
   pastoralPopRas <- crop_mask_resample(humanPop, pastoralZones) %>% round()
   
-  writeRaster(pastoralPopRas, paste0(resultsdir, "/pastoralPop_", popLayer, ".tif"), overwrite=TRUE)
+  writeRaster(pastoralPopRas, paste0(resultsdir, "/Raster_data/pastoralPop_", popLayer, ".tif"), overwrite=TRUE)
   
   # Extract agro-pastoral and pastoral separately using ifel
   agropastoralRas <- ifel(pastoralZones == 1, pastoralPopRas, NA)
@@ -85,16 +89,16 @@ combined_0 <- merge(agroPoly_0, pastoralPoly_0[c("GID_0", paste0(popLayers, "_pa
 combined_1 <- merge(agroPoly_1, pastoralPoly_1[c("GID_1", paste0(popLayers, "_pastoral"))], by="GID_1")
 
 # Save outputs
-write.csv(pastoralPopAfrica, paste0(resultsdir, "/pastoralPopAfrica.csv"), row.names = FALSE)
-write.csv(st_drop_geometry(combined_0), paste0(resultsdir, "/pastoral_combined_countries_0.csv"), row.names = FALSE)
-write.csv(st_drop_geometry(combined_1), paste0(resultsdir, "/pastoral_combined_countries_1.csv"), row.names = FALSE)
+write.csv(pastoralPopAfrica, paste0(resultsdir, "/Summary_statistics/pastoralPopAfrica.csv"), row.names = FALSE)
+write.csv(st_drop_geometry(combined_0), paste0(resultsdir, "/Summary_statistics/pastoral_combined_countries_0.csv"), row.names = FALSE)
+write.csv(st_drop_geometry(combined_1), paste0(resultsdir, "/Summary_statistics/pastoral_combined_countries_1.csv"), row.names = FALSE)
 
 # Save shapefiles for plotting
-writeVector(agroPoly_0, paste0(resultsdir, "/agropastoral_countries_0.shp"), overwrite = TRUE)
-writeVector(pastoralPoly_0, paste0(resultsdir, "/pastoral_countries_0.shp"), overwrite = TRUE)
-writeVector(agroPoly_1, paste0(resultsdir, "/agropastoral_countries_1.shp"), overwrite = TRUE)
-writeVector(pastoralPoly_1, paste0(resultsdir, "/pastoral_countries_1.shp"), overwrite = TRUE)
+writeVector(agroPoly_0, paste0(resultsdir, "/Vector_data/agropastoral_countries_0.shp"), overwrite = TRUE)
+writeVector(pastoralPoly_0, paste0(resultsdir, "/Vector_data/pastoral_countries_0.shp"), overwrite = TRUE)
+writeVector(agroPoly_1, paste0(resultsdir, "/Vector_data/agropastoral_countries_1.shp"), overwrite = TRUE)
+writeVector(pastoralPoly_1, paste0(resultsdir, "/Vector_data/pastoral_countries_1.shp"), overwrite = TRUE)
 
 # Greater horn of africa
 ghoa_combined_0 <- combined_0 %>% filter(GID_0 %in% c("DJI", "ERI", "ETH", "KEN", "SOM", "SSD", "SDN", "UGA"))
-write.csv(st_drop_geometry(ghoa_combined_0), paste0(resultsdir, "/pastoral_combined_ghoa_0.csv"), row.names = FALSE)
+write.csv(st_drop_geometry(ghoa_combined_0), paste0(resultsdir, "/Summary_statistics/pastoral_combined_ghoa_0.csv"), row.names = FALSE)
