@@ -58,19 +58,3 @@ write.csv(west_top_agro, paste0(resultsdir, "/Tabular_data/west_africa_top_agrop
 write.csv(west_top_pastoral, paste0(resultsdir, "/Tabular_data/west_africa_top_pastoral.csv"), row.names = FALSE)
 write.csv(south_top_agro, paste0(resultsdir, "/Tabular_data/southern_africa_top_agropastoral.csv"), row.names = FALSE)
 write.csv(south_top_pastoral, paste0(resultsdir, "/Tabular_data/southern_africa_top_pastoral.csv"), row.names = FALSE)
-
-# Print results
-cat("EAST AFRICA - Top 5 Agro-Pastoral Admin 1 Units:\n")
-print(east_top_agro)
-cat("\nEAST AFRICA - Top 5 Pastoral Admin 1 Units:\n")
-print(east_top_pastoral)
-
-cat("\nWEST AFRICA - Top 5 Agro-Pastoral Admin 1 Units:\n")
-print(west_top_agro)
-cat("\nWEST AFRICA - Top 5 Pastoral Admin 1 Units:\n")
-print(west_top_pastoral)
-
-cat("\nSOUTHERN AFRICA - Top 5 Agro-Pastoral Admin 1 Units:\n")
-print(south_top_agro)
-cat("\nSOUTHERN AFRICA - Top 5 Pastoral Admin 1 Units:\n")
-print(south_top_pastoral)
