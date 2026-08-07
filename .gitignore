@@ -1,0 +1,12 @@
+# Ignore large data and manuscript folders
+Manuscript/
+Other_data/
+References/
+Results/
+SpatialData/
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
