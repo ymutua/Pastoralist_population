@@ -4,6 +4,12 @@ Other_data/
 References/
 Results/
 SpatialData/
+Archive/
+
+# Local IDE and generated files
+.amazonq/
+README.html
+.DS_Store
 
 # R session files
 .Rhistory
